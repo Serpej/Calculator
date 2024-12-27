@@ -6,8 +6,26 @@
 
 .container {
     display: flex;
-    width: 900px;
-    height: 1300px;
+    flex-direction: column;
+    align-items: center;
+    width: 700px;
+    height: 1000px;
     background-color: rgb(75, 164, 241);
     margin-top: 2em;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+.display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 300px;
+    background-color: aliceblue;
+    margin: 1em 0 2em 0;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 60px;
+    font-weight: bold;
 }
