@@ -1,0 +1,13 @@
+.body {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    width: 900px;
+    height: 1300px;
+    background-color: rgb(75, 164, 241);
+    margin-top: 2em;
+}
