@@ -3,29 +3,9 @@ let subtract = (leftNum, rightNum) => leftNum - rightNum;
 let multiply = (leftNum, rightNum) => leftNum * rightNum;
 let divide = (leftNum, rightNum) => leftNum / rightNum;
 
-const display = document.querySelector(".display");
-
-
-    //Gör en eventlistener.
-const btnZero = document.querySelector(".zero");
-btnZero.addeventlistener("click", buttonToDisplay(0));
-
-function buttonToDisplay(value) {
-    console.log("pressed");
-    return display.textContent = value;
-};
-// Target alla buttons (för sig? eller alla har samma något slags bubblande?)
-// Koppla event listeners för klick på knappar till att skapa något på "display" (div med innehåll?).
-// Koppla event listeners för knapptryckningar för samma sak.
-// vid tryck på "=" ska operate funktionen användas.
-// vid "clear" ska allt på displayen tas bort.
-
-let test = multiply(30, 30);
-console.log(test);
-
-let leftNum;
+let leftNum = "";
 let Operator;
-let rightNum;
+let rightNum = "";
 
 function operate(leftNum, operator, rightNum) {
     if (operator = "+") {
@@ -41,3 +21,79 @@ function operate(leftNum, operator, rightNum) {
         return divide(leftNum,rightNum);
     }
 }
+
+const display = document.querySelector(".display");
+
+const buttonContainer = document.querySelector(".buttonContainer");
+
+buttonContainer.addEventListener("click", (event) => {
+    let target = event.target;
+
+    switch (target.className) {
+        case "zero":
+            leftNum += "0"
+            display.textContent = leftNum;
+            break;
+        
+        case "one":
+            leftNum += "1"
+            display.textContent = leftNum;
+            break;
+        
+        case "two":
+            leftNum += "2"
+            display.textContent = leftNum;
+            break;
+        
+        case "three":
+            leftNum += "3"
+            display.textContent = leftNum;
+            break;
+        
+        case "four":
+            leftNum += "4"
+            display.textContent = leftNum;
+            break;
+
+        case "five":
+            leftNum += "5"
+            display.textContent = leftNum;
+            break;
+
+        case "six":
+            leftNum += "6"
+            display.textContent = leftNum;
+            break;
+
+        case "seven":
+            leftNum += "7"
+            display.textContent = leftNum;
+            break;
+
+        case "eight":
+            leftNum += "8"
+            display.textContent = leftNum;
+            break;
+
+        case "nine":
+            leftNum += "9"
+            display.textContent = leftNum;
+            break;
+
+    
+    }
+});
+
+// Store numbers pressed in leftNum through eventlistener.
+// Store operator in var Operator.
+// Trigger if statement, if operator was pressed, store variable in rihtNum instead.
+// "=" Converts leftNum and rightNum into numbers and calls Operate function with variables as arguments.
+// "clear" button needs to reset if statement and clear display (textContent = "";)
+
+// Koppla event listeners för klick på knappar till att skapa något på "display" (div med innehåll?).
+// Koppla event listeners för knapptryckningar för samma sak. (?)
+// vid tryck på "=" ska operate funktionen användas.
+// vid "clear" ska allt på displayen tas bort.
+
+
+
