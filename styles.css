@@ -41,59 +41,59 @@ margin-bottom: 1em;
     padding: 0px;
     border: 2px solid black;
 }
-.numberButton{
+.numberButton {
     height: 90px;
     width: 90px;
 }
-.clear.numberButton {
+.clear {
     background-color: rgb(255, 54, 54); 
     font-size: x-large;
 }
-.plus.numberButton{
+.plus {
     font-size: x-large;
 }
-.seven.numberButton{
+.seven {
     font-size: x-large;
 }
-.eight.numberButton{
+.eight {
     font-size: x-large;
 }
-.nine.numberButton{
+.nine {
     font-size: x-large;
 }
-.subtract.numberButton{
+.subtract {
     font-size: x-large;
 }
-.four.numberButton{
+.four {
     font-size: x-large;
 }
-.five.numberButton{
+.five {
     font-size: x-large;
 }
-.six.numberButton{
+.six {
     font-size: x-large;
 }
-.multiply.numberButton{
+.multiply {
     font-size: x-large;
 }
-.one.numberButton{
+.one {
     font-size: x-large;
 }
-.two.numberButton{
+.two {
     font-size: x-large;
 }
-.three.numberButton{
+.three {
     font-size: x-large;
 }
-.divide.numberButton{
+.divide {
     font-size: x-large;
 }
-.clear.numberButton{
+.clear {
     font-size: x-large;
 }
-.zero.numberButton{
+.zero {
     font-size: x-large;
 }
-.sum.numberButton{
+.sum {
     font-size: x-large;
 }
