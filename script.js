@@ -6,18 +6,19 @@ let divide = (leftNum, rightNum) => leftNum / rightNum;
 let leftNum = "";
 let operator= "";
 let rightNum = "";
+let result = "";
 
 function operate(leftNum, operator, rightNum) {
-    if (operator = "+") {
+    if (operator === "+") {
         return add(leftNum, rightNum);
 
-    } else if (operator = "-") {
+    } else if (operator === "-") {
         return subtract(leftNum, rightNum);
 
-    } else if (operator = "*") {
+    } else if (operator === "*") {
         return multiply(leftNum,rightNum);
         
-    } else if (operator = "/") {
+    } else if (operator === "/") {
         return divide(leftNum,rightNum);
     }
 }
@@ -41,7 +42,48 @@ function updateRight(string) {
     rightNum += string;
     return display.textContent = `${leftNum}${operator}${rightNum}`;
 };
+
+let clear = () => {
+    leftNum ="";
+    rightNum ="";
+    operator ="";
+    return display.textContent="";
+}
   
+
+if (display.textContent === result) {
+    buttonContainer.addEventListener("click", (event) => {
+        let target = event.target;
+    
+        switch (target.className) {
+
+            case "add":
+            updateOperator("+",result);
+            break;
+
+            case "subtract":
+                updateOperator("-",result);
+                break;
+
+            case "multiply":
+                updateOperator("*",result);
+                break;
+                
+            case "divide":
+                updateOperator("/",result);
+                break;
+
+            case "sum":
+
+                break;
+
+            default:
+                clear()
+                break;
+        };
+    })
+};
+
 buttonContainer.addEventListener("click", (event) => {
     let target = event.target;
 
@@ -123,23 +165,17 @@ buttonContainer.addEventListener("click", (event) => {
             break;
    
         case "clear":
-            leftNum ="";
-            rightNum ="";
-            operator ="";
-            display.textContent="";
+            clear()
             break;
-
+        
+        case "sum":
+           result = operate(Number(leftNum), operator, Number(rightNum));
+           return display.textContent = result;
     }
 });
 
-// Store operator in var Operator.
-// "=" Converts leftNum and rightNum into numbers and calls Operate function with variables as arguments.
-// "clear" button needs to reset if statement and clear display (textContent = "";)
-
-// Koppla event listeners för klick på knappar till att skapa något på "display" (div med innehåll?).
-// Koppla event listeners för knapptryckningar för samma sak. (?)
-// vid tryck på "=" ska operate funktionen användas.
-// vid "clear" ska allt på displayen tas bort.
 
 
-
+// Gör så att siffrorna blir mindre när de blir för många.
+// Event listener på keyboard också?
+//
