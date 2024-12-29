@@ -41,7 +41,7 @@ function updateRight(string) {
     rightNum += string;
     return display.textContent = `${leftNum}${operator}${rightNum}`;
 };
-
+  
 buttonContainer.addEventListener("click", (event) => {
     let target = event.target;
 
@@ -122,6 +122,13 @@ buttonContainer.addEventListener("click", (event) => {
             updateOperator("/",leftNum);
             break;
    
+        case "clear":
+            leftNum ="";
+            rightNum ="";
+            operator ="";
+            display.textContent="";
+            break;
+
     }
 });
 
