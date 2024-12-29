@@ -30,9 +30,16 @@ function updateLeft(string) {
     leftNum += string;
     return display.textContent = leftNum;
 };
+
+function updateOperator(symbol,left) {
+    operator = symbol;
+    return display.textContent = `${left} ${operator}`;
+};
+
+
 function updateRight(string) {
     rightNum += string;
-    return display.textContent = rightNum;
+    return display.textContent = `${leftNum}${operator}${rightNum}`;
 };
 
 buttonContainer.addEventListener("click", (event) => {
@@ -100,9 +107,21 @@ buttonContainer.addEventListener("click", (event) => {
             break;
         
         case "add":
+            updateOperator("+",leftNum);
+            break;
+        
+        case "subtract":
+            updateOperator("-",leftNum);
+            break;
 
-
-    
+        case "multiply":
+            updateOperator("*",leftNum);
+            break;
+        
+        case "divide":
+            updateOperator("/",leftNum);
+            break;
+   
     }
 });
 
