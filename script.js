@@ -26,76 +26,6 @@ const display = document.querySelector(".display");
 
 const buttonContainer = document.querySelector(".buttonContainer");
 
-buttonContainer.addEventListener("click", (event) => {
-    let target = event.target;
-
-    switch (target.className) {
-        case "zero":
-            operator != "" 
-            ? updateRight("0")
-            : updateLeft("0");
-            break;
-        
-        case "one":
-            operator != "" 
-            ? updateRight("1")
-            : updateLeft("1");
-            break;
-        
-        case "two":
-            operator != "" 
-            ? updateRight("2")
-            : updateLeft("2");
-            break;
-        
-        case "three":
-            operator != "" 
-            ? updateRight("3")
-            : updateLeft("3");
-            break;
-        
-        case "four":
-            operator != "" 
-            ? updateRight("4")
-            : updateLeft("4");
-            break;
-
-        case "five":
-            operator != "" 
-            ? updateRight("5")
-            : updateLeft("5");
-            break;
-
-        case "six":
-            operator != "" 
-            ? updateRight("6")
-            : updateLeft("6");
-            break;
-
-        case "seven":
-            operator != "" 
-            ? updateRight("7")
-            : updateLeft("7");
-            break;
-
-        case "eight":
-            operator != "" 
-            ? updateRight("8")
-            : updateLeft("8");
-            break;
-
-        case "nine":
-            operator != "" 
-            ? updateRight("9!")
-            : updateLeft("9");
-            break;
-
-    
-    }
-});
-
-// operator = + || / || * || - ? updateRight() : updateLeft();
-
 function updateLeft(string) {
     leftNum += string;
     return display.textContent = leftNum;
@@ -105,8 +35,78 @@ function updateRight(string) {
     return display.textContent = rightNum;
 };
 
+buttonContainer.addEventListener("click", (event) => {
+    let target = event.target;
+
+    switch (target.className) {
+        case "zero":
+            operator === "" 
+            ? updateLeft("0")
+            : updateRight("0");
+            break;
+        
+        case "one":
+            operator === "" 
+            ? updateLeft("1")
+            : updateRight("1");
+            break;
+        
+        case "two":
+            operator === "" 
+            ? updateLeft("2")
+            : updateRight("2");
+            break;
+        
+        case "three":
+            operator === "" 
+            ? updateLeft("3")
+            : updateRight("3");
+            break;
+        
+        case "four":
+            operator === "" 
+            ? updateLeft("4")
+            : updateRight("4");
+            break;
+
+        case "five":
+            operator === "" 
+            ? updateLeft("5")
+            : updateRight("5");
+            break;
+
+        case "six":
+            operator === "" 
+            ? updateLeft("6")
+            : updateRight("6");
+            break;
+
+        case "seven":
+            operator === "" 
+            ? updateLeft("7")
+            : updateRight("7");
+            break;
+
+        case "eight":
+            operator === "" 
+            ? updateLeft("8")
+            : updateRight("8");
+            break;
+
+        case "nine":
+            operator === "" 
+            ? updateLeft("9")
+            : updateRight("9");
+            break;
+        
+        case "add":
+
+
+    
+    }
+});
+
 // Store operator in var Operator.
-// Trigger if statement, if operator was pressed, store variable in rihtNum instead.
 // "=" Converts leftNum and rightNum into numbers and calls Operate function with variables as arguments.
 // "clear" button needs to reset if statement and clear display (textContent = "";)
 
