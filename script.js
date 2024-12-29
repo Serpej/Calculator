@@ -57,22 +57,26 @@ buttonContainer.addEventListener("click", (event) => {
 
     if (display.textContent === result) {
         
+        leftNum = result;
+        display.textContent= leftNum;
+                                            //Det verkar som om någonting blir konstigt efter den här raden.
+                                            //LeftNum(result) försvinner om man trcker på en symbol, och bara symbolen dyker upp.
             switch (target.className) {
     
                 case "add":
-                    updateOperator(result, "+");
+                    updateOperator(leftNum, "+");
                     break;
     
                 case "subtract":
-                    updateOperator(result, "-");
+                    updateOperator(leftNum, "-");
                     break;
     
                 case "multiply":
-                    updateOperator(result, "*");
+                    updateOperator(leftNum, "*");
                     break;
                     
                 case "divide":
-                    updateOperator(result,"/");
+                    updateOperator(leftNum,"/");
                     break;
     
                 case "sum":
@@ -171,10 +175,17 @@ buttonContainer.addEventListener("click", (event) => {
         
         case "sum":
            result = operate(Number(leftNum), operator, Number(rightNum));
-           leftNum = result;
-           return display.textContent = leftNum;
+           display.textContent = result;
+           return postClear();
     }
 });
+
+let postClear = () => {
+    leftNum = "";
+    rightNum = "";
+    return operator = "";
+
+}
 
 
 
