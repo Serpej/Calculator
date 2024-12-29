@@ -32,7 +32,7 @@ function updateLeft(string) {
     return display.textContent = leftNum;
 };
 
-function updateOperator(symbol,left) {
+function updateOperator(left, symbol) {
     operator = symbol;
     return display.textContent = `${left} ${operator}`;
 };
@@ -51,41 +51,42 @@ let clear = () => {
 }
   
 
-if (display.textContent === result) {
-    buttonContainer.addEventListener("click", (event) => {
-        let target = event.target;
-    
-        switch (target.className) {
-
-            case "add":
-            updateOperator("+",result);
-            break;
-
-            case "subtract":
-                updateOperator("-",result);
-                break;
-
-            case "multiply":
-                updateOperator("*",result);
-                break;
-                
-            case "divide":
-                updateOperator("/",result);
-                break;
-
-            case "sum":
-
-                break;
-
-            default:
-                clear()
-                break;
-        };
-    })
-};
 
 buttonContainer.addEventListener("click", (event) => {
     let target = event.target;
+
+    if (display.textContent === result) {
+        
+            switch (target.className) {
+    
+                case "add":
+                    updateOperator(result, "+");
+                    break;
+    
+                case "subtract":
+                    updateOperator(result, "-");
+                    break;
+    
+                case "multiply":
+                    updateOperator(result, "*");
+                    break;
+                    
+                case "divide":
+                    updateOperator(result,"/");
+                    break;
+    
+                case "sum":
+    
+                    break;
+    
+                default:
+                    clear()
+                    break;
+            };
+    };
+    
+    
+    
 
     switch (target.className) {
         case "zero":
@@ -149,19 +150,19 @@ buttonContainer.addEventListener("click", (event) => {
             break;
         
         case "add":
-            updateOperator("+",leftNum);
+            updateOperator(leftNum, "+");
             break;
         
         case "subtract":
-            updateOperator("-",leftNum);
+            updateOperator(leftNum, "-");
             break;
 
         case "multiply":
-            updateOperator("*",leftNum);
+            updateOperator(leftNum, "*");
             break;
         
         case "divide":
-            updateOperator("/",leftNum);
+            updateOperator(leftNum, "/");
             break;
    
         case "clear":
@@ -170,7 +171,8 @@ buttonContainer.addEventListener("click", (event) => {
         
         case "sum":
            result = operate(Number(leftNum), operator, Number(rightNum));
-           return display.textContent = result;
+           leftNum = result;
+           return display.textContent = leftNum;
     }
 });
 
