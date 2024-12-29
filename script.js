@@ -4,7 +4,7 @@ let multiply = (leftNum, rightNum) => leftNum * rightNum;
 let divide = (leftNum, rightNum) => leftNum / rightNum;
 
 let leftNum = "";
-let Operator;
+let operator= "";
 let rightNum = "";
 
 function operate(leftNum, operator, rightNum) {
@@ -31,60 +31,80 @@ buttonContainer.addEventListener("click", (event) => {
 
     switch (target.className) {
         case "zero":
-            leftNum += "0"
-            display.textContent = leftNum;
+            operator != "" 
+            ? updateRight("0")
+            : updateLeft("0");
             break;
         
         case "one":
-            leftNum += "1"
-            display.textContent = leftNum;
+            operator != "" 
+            ? updateRight("1")
+            : updateLeft("1");
             break;
         
         case "two":
-            leftNum += "2"
-            display.textContent = leftNum;
+            operator != "" 
+            ? updateRight("2")
+            : updateLeft("2");
             break;
         
         case "three":
-            leftNum += "3"
-            display.textContent = leftNum;
+            operator != "" 
+            ? updateRight("3")
+            : updateLeft("3");
             break;
         
         case "four":
-            leftNum += "4"
-            display.textContent = leftNum;
+            operator != "" 
+            ? updateRight("4")
+            : updateLeft("4");
             break;
 
         case "five":
-            leftNum += "5"
-            display.textContent = leftNum;
+            operator != "" 
+            ? updateRight("5")
+            : updateLeft("5");
             break;
 
         case "six":
-            leftNum += "6"
-            display.textContent = leftNum;
+            operator != "" 
+            ? updateRight("6")
+            : updateLeft("6");
             break;
 
         case "seven":
-            leftNum += "7"
-            display.textContent = leftNum;
+            operator != "" 
+            ? updateRight("7")
+            : updateLeft("7");
             break;
 
         case "eight":
-            leftNum += "8"
-            display.textContent = leftNum;
+            operator != "" 
+            ? updateRight("8")
+            : updateLeft("8");
             break;
 
         case "nine":
-            leftNum += "9"
-            display.textContent = leftNum;
+            operator != "" 
+            ? updateRight("9!")
+            : updateLeft("9");
             break;
 
     
     }
 });
 
-// Store numbers pressed in leftNum through eventlistener.
+// operator = + || / || * || - ? updateRight() : updateLeft();
+
+function updateLeft(string) {
+    leftNum += string;
+    return display.textContent = leftNum;
+};
+function updateRight(string) {
+    rightNum += string;
+    return display.textContent = rightNum;
+};
+
 // Store operator in var Operator.
 // Trigger if statement, if operator was pressed, store variable in rihtNum instead.
 // "=" Converts leftNum and rightNum into numbers and calls Operate function with variables as arguments.
