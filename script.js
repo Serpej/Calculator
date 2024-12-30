@@ -93,8 +93,8 @@ buttonContainer.addEventListener("click", (event) => {
                     break;
             };
     };
-    
-    
+    //Ny else if ifall user trcker på symbol när det redan finns en leftNum, operator och rightNum => operate, lägg resultatet i leftNum och lägg till den andra symbolen
+        
     
 
     switch (target.className) {
@@ -182,6 +182,8 @@ buttonContainer.addEventListener("click", (event) => {
            resultNum = operate(Number(leftNum), operator, Number(rightNum));
            resultString = String(resultNum);
            numbersShown.textContent = resultString;
+
+           // Ny else if om de försöker trycka på "=" när operator är "/" och rightNum är "0", visa felmeddelande.
            return postClear();
     }
 });
