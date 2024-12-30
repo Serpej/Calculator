@@ -24,42 +24,47 @@ function operate(leftNum, operator, rightNum) {
     }
 }
 
-const display = document.querySelector(".display");
+const numbersShown = document.querySelector(".numbersShown");
 
 const buttonContainer = document.querySelector(".buttonContainer");
 
 function updateLeft(string) {
     leftNum += string;
-    return display.textContent = leftNum;
+    return numbersShown.textContent = leftNum;
 };
 
 function updateOperator(left, symbol) {
     operator = symbol;
-    return display.textContent = `${left} ${operator}`;
+    return numbersShown.textContent = `${left} ${operator}`;
 };
 
 
 function updateRight(string) {
     rightNum += string;
-    return display.textContent = `${leftNum}${operator}${rightNum}`;
+    return numbersShown.textContent = `${leftNum}${operator}${rightNum}`;
 };
 
 let clear = () => {
     leftNum ="";
     rightNum ="";
     operator ="";
-    return display.textContent="";
+    return numbersShown.textContent="";
 }
-  
 
+let postClear = () => {
+    leftNum = "";
+    rightNum = "";
+    return operator = "";
+
+}
 
 buttonContainer.addEventListener("click", (event) => {
     let target = event.target;
 
-    if (display.textContent === resultString) {
+    if (numbersShown.textContent === resultString) {
         
         leftNum = resultString;
-        display.textContent= leftNum;
+        numbersShown.textContent= leftNum;
 
             switch (target.className) {
     
@@ -176,20 +181,11 @@ buttonContainer.addEventListener("click", (event) => {
         case "sum":
            resultNum = operate(Number(leftNum), operator, Number(rightNum));
            resultString = String(resultNum);
-           display.textContent = resultString;
+           numbersShown.textContent = resultString;
            return postClear();
     }
 });
 
-let postClear = () => {
-    leftNum = "";
-    rightNum = "";
-    return operator = "";
 
-}
-
-
-
-// Gör så att siffrorna blir mindre när de blir för många.
 // Event listener på keyboard också?
 //
