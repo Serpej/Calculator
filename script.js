@@ -6,7 +6,8 @@ let divide = (leftNum, rightNum) => leftNum / rightNum;
 let leftNum = "";
 let operator= "";
 let rightNum = "";
-let result = "";
+let resultString
+let resultNum = "";
 
 function operate(leftNum, operator, rightNum) {
     if (operator === "+") {
@@ -55,9 +56,9 @@ let clear = () => {
 buttonContainer.addEventListener("click", (event) => {
     let target = event.target;
 
-    if (display.textContent === result) {
+    if (display.textContent === resultString) {
         
-        leftNum = result;
+        leftNum = resultString;
         display.textContent= leftNum;
                                             //Det verkar som om någonting blir konstigt efter den här raden.
                                             //LeftNum(result) försvinner om man trcker på en symbol, och bara symbolen dyker upp.
@@ -174,8 +175,9 @@ buttonContainer.addEventListener("click", (event) => {
             break;
         
         case "sum":
-           result = operate(Number(leftNum), operator, Number(rightNum));
-           display.textContent = result;
+           resultNum = operate(Number(leftNum), operator, Number(rightNum));
+           resultString = String(resultNum);
+           display.textContent = resultString;
            return postClear();
     }
 });
