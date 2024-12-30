@@ -60,8 +60,7 @@ buttonContainer.addEventListener("click", (event) => {
         
         leftNum = resultString;
         display.textContent= leftNum;
-                                            //Det verkar som om någonting blir konstigt efter den här raden.
-                                            //LeftNum(result) försvinner om man trcker på en symbol, och bara symbolen dyker upp.
+
             switch (target.className) {
     
                 case "add":
