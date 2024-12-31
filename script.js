@@ -62,7 +62,10 @@ function checkOperator(symbol) {
     if (leftNum != "" && operator != "" && rightNum != "") {
         resultNum = operate(Number(leftNum), operator, Number(rightNum));
         resultString = String(resultNum);
-        return numbersShown.textContent = `${resultString}${symbol}`;
+        numbersShown.textContent = `${resultString}${symbol}`;
+        rightNum = "";
+        leftNum = resultString;
+        return operator = symbol;
     }
 }
 
@@ -195,12 +198,15 @@ buttonContainer.addEventListener("click", (event) => {
             break;
         
         case "sum":
-           resultNum = operate(Number(leftNum), operator, Number(rightNum));
-           resultString = String(resultNum);
-           numbersShown.textContent = resultString;
-
-           // Ny else if om de försöker trycka på "=" när operator är "/" och rightNum är "0", visa felmeddelande.
-           return postClear();
+            if (operator === "/" && rightNum === "0") {
+                clear();
+                numbersShown.textContent = "Stop it!";
+            } else {
+            
+                resultNum = operate(Number(leftNum), operator, Number(rightNum));
+                resultString = String(resultNum);
+                numbersShown.textContent = resultString;
+                return postClear();}
     }
 });
 
