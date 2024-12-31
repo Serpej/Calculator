@@ -58,6 +58,14 @@ let postClear = () => {
 
 }
 
+function checkOperator(symbol) {
+    if (leftNum != "" && operator != "" && rightNum != "") {
+        resultNum = operate(Number(leftNum), operator, Number(rightNum));
+        resultString = String(resultNum);
+        return numbersShown.textContent = `${resultString}${symbol}`;
+    }
+}
+
 buttonContainer.addEventListener("click", (event) => {
     let target = event.target;
 
@@ -93,8 +101,8 @@ buttonContainer.addEventListener("click", (event) => {
                     break;
             };
     };
-    //Ny else if ifall user trcker på symbol när det redan finns en leftNum, operator och rightNum => operate, lägg resultatet i leftNum och lägg till den andra symbolen
-        
+    
+  
     
 
     switch (target.className) {
@@ -159,19 +167,27 @@ buttonContainer.addEventListener("click", (event) => {
             break;
         
         case "add":
-            updateOperator(leftNum, "+");
+            operator === "" 
+            ? updateOperator(leftNum, "+")
+            : checkOperator("+");
             break;
         
         case "subtract":
-            updateOperator(leftNum, "-");
+            operator === "" 
+            ? updateOperator(leftNum, "-")
+            : checkOperator("-");
             break;
 
         case "multiply":
-            updateOperator(leftNum, "*");
+            operator === "" 
+            ? updateOperator(leftNum, "*")
+            : checkOperator("*");
             break;
         
         case "divide":
-            updateOperator(leftNum, "/");
+            operator === "" 
+            ? updateOperator(leftNum, "/")
+            : checkOperator("/");
             break;
    
         case "clear":
