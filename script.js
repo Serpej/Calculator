@@ -60,8 +60,11 @@ let postClear = () => {
 
 function checkOperator(symbol) {
     if (leftNum != "" && operator != "" && rightNum != "") {
-        resultNum = operate(Number(leftNum), operator, Number(rightNum)).toFixed(2);
-        resultString = String(resultNum);
+        resultNum = operate(Number(leftNum), operator, Number(rightNum)).toFixed(2); 
+        resultString =
+        !Number.isInteger(resultNum) 
+        ? resultNum.toFixed(3)
+        : String(resultNum);
         numbersShown.textContent = `${resultString}${symbol}`;
         rightNum = "";
         leftNum = resultString;
@@ -201,13 +204,15 @@ buttonContainer.addEventListener("click", (event) => {
             if (operator === "/" && rightNum === "0") {
                 clear();
                 numbersShown.textContent = "Stop it!";
-                // om inte alla variabler är definierade ska inget hända.
             } else if (leftNum === "" || operator ==="" || rightNum ==="") {
                 return;
             } else {
             
-                resultNum = operate(Number(leftNum), operator, Number(rightNum)).toFixed(2);
-                resultString = String(resultNum);
+                resultNum = operate(Number(leftNum), operator, Number(rightNum));
+                resultString =
+                    !Number.isInteger(resultNum) 
+                    ? resultNum.toFixed(3)
+                    : String(resultNum);
                 numbersShown.textContent = resultString;
                 return postClear();}
     }
