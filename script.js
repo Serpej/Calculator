@@ -60,7 +60,7 @@ let postClear = () => {
 
 function checkOperator(symbol) {
     if (leftNum != "" && operator != "" && rightNum != "") {
-        resultNum = operate(Number(leftNum), operator, Number(rightNum));
+        resultNum = operate(Number(leftNum), operator, Number(rightNum)).toFixed(2);
         resultString = String(resultNum);
         numbersShown.textContent = `${resultString}${symbol}`;
         rightNum = "";
@@ -202,15 +202,16 @@ buttonContainer.addEventListener("click", (event) => {
                 clear();
                 numbersShown.textContent = "Stop it!";
                 // om inte alla variabler är definierade ska inget hända.
+            } else if (leftNum === "" || operator ==="" || rightNum ==="") {
+                return;
             } else {
             
-                resultNum = operate(Number(leftNum), operator, Number(rightNum)).toFixed(3);
+                resultNum = operate(Number(leftNum), operator, Number(rightNum)).toFixed(2);
                 resultString = String(resultNum);
                 numbersShown.textContent = resultString;
                 return postClear();}
     }
 });
-
 
 // Event listener på keyboard också?
 //
