@@ -201,14 +201,13 @@ buttonContainer.addEventListener("click", (event) => {
             if (operator === "/" && rightNum === "0") {
                 clear();
                 numbersShown.textContent = "Stop it!";
-                // om inte alla variabler är definierade ska inget hända. 
+                // om inte alla variabler är definierade ska inget hända.
             } else {
             
-                resultNum = operate(Number(leftNum), operator, Number(rightNum));
+                resultNum = operate(Number(leftNum), operator, Number(rightNum)).toFixed(3);
                 resultString = String(resultNum);
                 numbersShown.textContent = resultString;
                 return postClear();}
-                //Runda av alla decimaler.
     }
 });
 
