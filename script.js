@@ -220,7 +220,6 @@ buttonContainer.addEventListener("click", (event) => {
 
 document.addEventListener("keydown", (event) => {
     let target = event;
-    console.log(event);
 
     if (numbersShown.textContent === resultString) {
         
