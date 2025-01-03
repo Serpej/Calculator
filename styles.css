@@ -1,5 +1,5 @@
 .body {
-    background-color: aquamarine;
+    background-color: rgb(187, 187, 187);
     display: flex;
     justify-content: center;
 }
@@ -10,7 +10,7 @@
     align-items: center;
     width: 500px;
     height: 800px;
-    background-color: rgb(75, 164, 241);
+    background-color: rgb(87, 145, 196);
     margin-top: 5em;
     border-radius: 5px;
     border: 2px solid black;
