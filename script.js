@@ -218,5 +218,146 @@ buttonContainer.addEventListener("click", (event) => {
     }
 });
 
-// Event listener på keyboard också?
-//
+document.addEventListener("keydown", (event) => {
+    let target = event;
+    console.log(event);
+
+    if (numbersShown.textContent === resultString) {
+        
+        leftNum = resultString;
+        numbersShown.textContent= leftNum;
+
+            switch (target.key) {
+    
+                case "+":
+                    updateOperator(leftNum, "+");
+                    break;
+    
+                case "-":
+                    updateOperator(leftNum, "-");
+                    break;
+    
+                case "*":
+                    updateOperator(leftNum, "*");
+                    break;
+                    
+                case "/":
+                    updateOperator(leftNum,"/");
+                    break;
+    
+                case "Enter":
+    
+                    break;
+    
+                default:
+                    clear()
+                    break;
+            };
+    };
+    switch (target.key) {
+        
+        case "0":
+            operator === "" 
+            ? updateLeft("0")
+            : updateRight("0");
+            break;
+
+            case "1":
+                operator === "" 
+                ? updateLeft("1")
+                : updateRight("1");
+                break;
+            
+            case "2":
+                operator === "" 
+                ? updateLeft("2")
+                : updateRight("2");
+                break;
+            
+            case "3":
+                operator === "" 
+                ? updateLeft("3")
+                : updateRight("3");
+                break;
+            
+            case "4":
+                operator === "" 
+                ? updateLeft("4")
+                : updateRight("4");
+                break;
+    
+            case "5":
+                operator === "" 
+                ? updateLeft("5")
+                : updateRight("5");
+                break;
+    
+            case "6":
+                operator === "" 
+                ? updateLeft("6")
+                : updateRight("6");
+                break;
+    
+            case "7":
+                operator === "" 
+                ? updateLeft("7")
+                : updateRight("7");
+                break;
+    
+            case "8":
+                operator === "" 
+                ? updateLeft("8")
+                : updateRight("8");
+                break;
+    
+            case "9":
+                operator === "" 
+                ? updateLeft("9")
+                : updateRight("9");
+                break;
+            
+            case "+":
+                operator === "" 
+                ? updateOperator(leftNum, "+")
+                : checkOperator("+");
+                break;
+            
+            case "-":
+                operator === "" 
+                ? updateOperator(leftNum, "-")
+                : checkOperator("-");
+                break;
+    
+            case "*":
+                operator === "" 
+                ? updateOperator(leftNum, "*")
+                : checkOperator("*");
+                break;
+            
+            case "/":
+                operator === "" 
+                ? updateOperator(leftNum, "/")
+                : checkOperator("/");
+                break;
+       
+            case "Backspace":
+                clear()
+                break;
+            
+            case "Enter":
+                if (operator === "/" && rightNum === "0") {
+                    clear();
+                    numbersShown.textContent = "Stop it!";
+                } else if (leftNum === "" || operator ==="" || rightNum ==="") {
+                    return;
+                } else {
+                
+                    resultNum = operate(Number(leftNum), operator, Number(rightNum));
+                    resultString =
+                        !Number.isInteger(resultNum) 
+                        ? resultNum.toFixed(3)
+                        : String(resultNum);
+                    numbersShown.textContent = resultString;
+                    return postClear();}
+        }
+})
